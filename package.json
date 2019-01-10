@@ -37,9 +37,10 @@
     "build:js": "rm -rf src && babel source --out-dir src",
     "contributors:add": "all-contributors add",
     "contributors:generate": "all-contributors generate",
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
     "lint": "eslint --ext .js .",
     "prepublishOnly": "npm run lint && npm run build",
-    "test": "npm run lint && ava --verbose"
+    "test": "npm run lint && nyc ava"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
@@ -50,7 +51,8 @@
     "ava": "^1.0.1",
     "babel-core": "^7.0.0-bridge.0",
     "coveralls": "^3.0.2",
-    "eslint": "^5.12.0"
+    "eslint": "^5.12.0",
+    "nyc": "^13.1.0"
   },
   "dependencies": {
     "@babel/polyfill": "^7.0.0"
