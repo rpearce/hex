@@ -1,0 +1,72 @@
+{
+  "name": "@rpearce/hex",
+  "version": "0.1.0",
+  "description": "Hexadecimal color code utility functions",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:rpearce/hex.git"
+  },
+  "homepage": "https://github.com/rpearce/hex",
+  "bugs": "https://github.com/rpearce/hex/issues",
+  "author": "Robert Pearce <me@robertwpearce.com>",
+  "contributors": [
+    "Robert Pearce <me@robertwpearce.com> (https://robertwpearce.com)"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "hex",
+    "hexadecimal",
+    "hex-to-rgb",
+    "hex-to-rgba"
+  ],
+  "tags": [
+    "hex",
+    "hexadecimal",
+    "hex-to-rgb",
+    "hex-to-rgba"
+  ],
+  "files": [
+    "AUTHORS",
+    "LICENSE",
+    "README.md",
+    "src/"
+  ],
+  "scripts": {
+    "build": "npm run build:js",
+    "build:js": "rm -rf src && babel source --out-dir src",
+    "contributors:add": "all-contributors add",
+    "contributors:generate": "all-contributors generate",
+    "lint": "eslint --ext .js .",
+    "prepublishOnly": "npm run lint && npm run build",
+    "test": "npm run lint && ava --verbose"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "@babel/register": "^7.0.0",
+    "all-contributors-cli": "^5.7.0",
+    "ava": "^1.0.1",
+    "babel-core": "^7.0.0-bridge.0",
+    "coveralls": "^3.0.2",
+    "eslint": "^5.12.0"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.0.0"
+  },
+  "ava": {
+    "babel": {
+      "testOptions": {
+        "babelrc": false,
+        "configFile": false
+      }
+    },
+    "files": [
+      "test/**/*.js"
+    ],
+    "require": [
+      "@babel/register"
+    ]
+  }
+}
