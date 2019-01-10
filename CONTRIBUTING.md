@@ -37,3 +37,9 @@ Tests are located in the `test/` folder. Here's how to run them:
 ```
 $ yarn test
 ```
+
+To watch for changes:
+
+```
+$ yarn test --watch
+```

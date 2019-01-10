@@ -1,6 +1,14 @@
 import test from 'ava'
 import { parse } from '../source'
 
+test('undefined', t => {
+  t.is(parse(), '')
+})
+
+test('empty string', t => {
+  t.is(parse(''), '')
+})
+
 test('pure hex-8', t => {
   t.is(parse('0099ff80'), '0099ff80')
   t.is(parse('00000080'), '00000080')
