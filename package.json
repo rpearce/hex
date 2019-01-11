@@ -71,5 +71,11 @@
     "require": [
       "@babel/register"
     ]
+  },
+  "nyc": {
+    "include": [
+      "index.js",
+      "source/**/*.js"
+    ]
   }
 }
