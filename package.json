@@ -38,9 +38,10 @@
     "contributors:add": "all-contributors add",
     "contributors:generate": "all-contributors generate",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "coverage:report": "nyc report --reporter=lcov && echo \"view coverage: ./coverage/lcov-report/index.html\"",
     "lint": "eslint --ext .js .",
     "prepublishOnly": "npm run lint && npm run build",
-    "test": "npm run lint && nyc --reporter=lcov ava --verbose"
+    "test": "npm run lint && nyc ava --verbose"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
