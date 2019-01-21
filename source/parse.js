@@ -1,4 +1,4 @@
-// repeat :: HexShorthand -> String Hex
+// repeat :: String HexShorthand -> String Hex
 const repeat = x =>
   [ ...x ].map(y => y + y).join('')
 
