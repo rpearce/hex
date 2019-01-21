@@ -1,6 +1,6 @@
 {
   "name": "@rpearce/hex",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Hexadecimal color code utility functions",
   "main": "index.js",
   "repository": {
