@@ -1,7 +1,7 @@
 {
   "name": "@rpearce/hex",
-  "version": "0.2.0",
-  "description": "Hexadecimal color code utility functions",
+  "version": "0.2.1",
+  "description": "Hexadecimal color code & RGBa utility functions",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -18,13 +18,17 @@
     "hex",
     "hexadecimal",
     "hex-to-rgb",
-    "hex-to-rgba"
+    "hex-to-rgba",
+    "rgba-to-hex",
+    "rgb-to-hex"
   ],
   "tags": [
     "hex",
     "hexadecimal",
     "hex-to-rgb",
-    "hex-to-rgba"
+    "hex-to-rgba",
+    "rgba-to-hex",
+    "rgb-to-hex"
   ],
   "files": [
     "AUTHORS",
