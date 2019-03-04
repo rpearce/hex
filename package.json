@@ -36,6 +36,7 @@
     "README.md",
     "src/"
   ],
+  "sideEffects": false,
   "scripts": {
     "build": "npm run build:js",
     "build:js": "rm -rf src && babel source --out-dir src",
@@ -49,18 +50,16 @@
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
-    "@babel/core": "^7.2.2",
-    "@babel/preset-env": "^7.2.3",
+    "@babel/core": "^7.3.4",
+    "@babel/polyfill": "^7.2.5",
+    "@babel/preset-env": "^7.3.4",
     "@babel/register": "^7.0.0",
-    "all-contributors-cli": "^5.7.0",
-    "ava": "^1.0.1",
+    "all-contributors-cli": "^6.1.2",
+    "ava": "^1.2.1",
     "babel-core": "^7.0.0-bridge.0",
-    "coveralls": "^3.0.2",
-    "eslint": "^5.12.0",
-    "nyc": "^13.1.0"
-  },
-  "dependencies": {
-    "@babel/polyfill": "^7.0.0"
+    "coveralls": "^3.0.3",
+    "eslint": "^5.15.0",
+    "nyc": "^13.3.0"
   },
   "ava": {
     "babel": {
