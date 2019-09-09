@@ -2,7 +2,8 @@
   "name": "@rpearce/hex",
   "version": "0.2.2",
   "description": "Hexadecimal color code & RGBa utility functions",
-  "main": "index.js",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
   "repository": {
     "type": "git",
     "url": "git@github.com:rpearce/hex.git"
@@ -34,32 +35,44 @@
     "AUTHORS",
     "LICENSE",
     "README.md",
-    "src/"
+    "dist/"
   ],
   "sideEffects": false,
   "scripts": {
-    "build": "npm run build:js",
-    "build:js": "rm -rf src && babel source --out-dir src",
+    "build": "run-s clean build:js",
+    "build:js": "rollup -c rollup.config.js",
+    "clean": "rm -rf dist",
     "contributors:add": "all-contributors add",
     "contributors:generate": "all-contributors generate",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "coverage:report": "nyc report --reporter=lcov && echo \"view coverage: ./coverage/lcov-report/index.html\"",
     "lint": "eslint --ext .js .",
-    "prepublishOnly": "npm run lint && npm run build",
-    "test": "npm run lint && nyc ava --verbose"
+    "prepublishOnly": "run-p lint test && npm run build",
+    "test": "nyc ava --verbose"
   },
   "devDependencies": {
-    "@babel/cli": "^7.2.3",
-    "@babel/core": "^7.3.4",
-    "@babel/polyfill": "^7.2.5",
-    "@babel/preset-env": "^7.3.4",
-    "@babel/register": "^7.0.0",
-    "all-contributors-cli": "^6.1.2",
-    "ava": "^1.2.1",
+    "@babel/cli": "^7.6.0",
+    "@babel/core": "^7.6.0",
+    "@babel/polyfill": "^7.6.0",
+    "@babel/preset-env": "^7.6.0",
+    "@babel/register": "^7.6.0",
+    "all-contributors-cli": "^6.9.0",
+    "ava": "^2.3.0",
     "babel-core": "^7.0.0-bridge.0",
-    "coveralls": "^3.0.3",
-    "eslint": "^5.15.0",
-    "nyc": "^13.3.0"
+    "coveralls": "^3.0.6",
+    "eslint": "^6.3.0",
+    "eslint-config-prettier": "^6.2.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "husky": "^3.0.5",
+    "lint-staged": "^9.2.5",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^1.18.2",
+    "nyc": "^14.1.1",
+    "rollup": "^1.20.3",
+    "rollup-plugin-auto-external": "^3.0.0-alpha.0",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0"
   },
   "ava": {
     "babel": {
@@ -73,12 +86,6 @@
     ],
     "require": [
       "@babel/register"
-    ]
-  },
-  "nyc": {
-    "include": [
-      "index.js",
-      "source/**/*.js"
     ]
   }
 }
