@@ -10,13 +10,13 @@ test('empty array', t => {
 })
 
 test('no alpha', t => {
-  t.is(rgbaToRgbaCss([  120, 55, 168  ]), 'rgba(120,55,168,1)')
+  t.is(rgbaToRgbaCss([120, 55, 168]), 'rgba(120,55,168,1)')
 })
 
 test('alpha is 1', t => {
-  t.is(rgbaToRgbaCss([  120, 55, 168, 1  ]), 'rgba(120,55,168,1)')
+  t.is(rgbaToRgbaCss([120, 55, 168, 1]), 'rgba(120,55,168,1)')
 })
 
 test('alpha is 0.3', t => {
-  t.is(rgbaToRgbaCss([  120, 55, 168, 0.3  ]), 'rgba(120,55,168,0.3)')
+  t.is(rgbaToRgbaCss([120, 55, 168, 0.3]), 'rgba(120,55,168,0.3)')
 })

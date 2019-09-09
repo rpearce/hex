@@ -5,8 +5,8 @@ import rgbaToHex from './rgbaToHex'
 
 // hexBlend :: (String Hex, String Hex, Number) -> String Hex
 const hexBlend = (x, y, n) => {
-  const [ rX, gX, bX, aX ] = hexToRgba(x)
-  const [ rY, gY, bY, aY ] = hexToRgba(y)
+  const [rX, gX, bX, aX] = hexToRgba(x)
+  const [rY, gY, bY, aY] = hexToRgba(y)
   const hex = rgbaToHex([
     blend(rX, rY, n),
     blend(gX, gY, n),
@@ -14,9 +14,7 @@ const hexBlend = (x, y, n) => {
     blendAlpha(aX, aY, n)
   ])
 
-  return aX === 1 && aY === 1
-    ? hex.slice(0, 7)
-    : hex
+  return aX === 1 && aY === 1 ? hex.slice(0, 7) : hex
 }
 
 export default hexBlend
