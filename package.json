@@ -46,7 +46,7 @@
     "contributors:generate": "all-contributors generate",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "coverage:report": "nyc report --reporter=lcov && echo \"view coverage: ./coverage/lcov-report/index.html\"",
-    "lint": "eslint --ext .js .",
+    "lint": "eslint .",
     "prepublishOnly": "run-p lint test && npm run build",
     "test": "nyc ava --verbose"
   },
