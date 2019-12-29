@@ -1,6 +1,6 @@
 {
   "name": "@rpearce/hex",
-  "version": "0.2.4",
+  "version": "0.3.0",
   "description": "Hexadecimal color code & RGBa utility functions",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
