@@ -33,15 +33,15 @@ $ yarn add @rpearce/hex
 
 ## Usage
 You can import each module by destructuring the index like this:
-```
+```js
 import { blend } from '@rpearce/hex'
 ```
 Or you can individually import modules like this:
-```
+```js
 import blend from '@rpearce/hex/esm/blend'
 ```
 There is also a commonjs build:
-```
+```js
 const { blend } = require('@rpearce/hex')
 const blend = require('@rpearce/hex/cjs/blend')
 ```
