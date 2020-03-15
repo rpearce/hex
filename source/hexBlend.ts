@@ -1,10 +1,12 @@
+import { numberAlpha, stringHex } from './customTypes'
 import blend from './blend'
 import blendAlpha from './blendAlpha'
 import hexToRgba from './hexToRgba'
 import rgbaToHex from './rgbaToHex'
 
-// hexBlend :: (String Hex, String Hex, Number) -> String Hex
-const hexBlend = (x, y, n) => {
+type HexBlend = (hexA: stringHex, hexB: stringHex, n: numberAlpha) => stringHex
+
+const hexBlend: HexBlend = (x, y, n) => {
   const [rX, gX, bX, aX] = hexToRgba(x)
   const [rY, gY, bY, aY] = hexToRgba(y)
   const hex = rgbaToHex([

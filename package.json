@@ -1,10 +1,9 @@
 {
   "name": "@rpearce/hex",
-  "version": "0.3.1",
+  "version": "1.0.0",
   "description": "Hexadecimal color code & RGBa utility functions",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
-  "browser": "dist/umd/index.js",
   "repository": {
     "type": "git",
     "url": "git@github.com:rpearce/hex.git"
@@ -12,10 +11,7 @@
   "homepage": "https://github.com/rpearce/hex",
   "bugs": "https://github.com/rpearce/hex/issues",
   "author": "Robert Pearce <me@robertwpearce.com>",
-  "contributors": [
-    "Robert Pearce <me@robertwpearce.com> (https://robertwpearce.com)"
-  ],
-  "license": "ISC",
+  "license": "BSD-3",
   "keywords": [
     "hex",
     "hexadecimal",
@@ -41,37 +37,42 @@
   "sideEffects": false,
   "scripts": {
     "build": "run-s clean build:js",
-    "build:js": "rollup -c rollup.config.js",
-    "clean": "rm -rf dist",
+    "build:js": "rollup -c ./rollup.config.js",
+    "build:js:watch": "yarn build:js -- -w",
+    "ci": "run-p lint build test",
+    "clean": "run-p clean:dist",
+    "clean:dist": "rm -rf ./dist",
     "contributors:add": "all-contributors add",
     "contributors:generate": "all-contributors generate",
-    "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "coverage:report": "nyc report --reporter=lcov && echo \"view coverage: ./coverage/lcov-report/index.html\"",
-    "lint": "eslint .",
-    "prepublishOnly": "run-p lint test && npm run build",
-    "test": "nyc ava --verbose"
+    "coverage": "jest --coverage --coverageReporters=text-lcov | coveralls",
+    "lint": "eslint . --ext .js,.ts",
+    "prepublishOnly": "run-p lint test && yarn build:js",
+    "test": "jest"
   },
   "devDependencies": {
-    "@babel/cli": "7.8.4",
-    "@babel/core": "7.8.4",
-    "@babel/polyfill": "7.8.3",
-    "@babel/preset-env": "7.8.4",
-    "@babel/register": "7.8.3",
     "@rollup/plugin-commonjs": "11.0.2",
     "@rollup/plugin-node-resolve": "7.1.1",
-    "all-contributors-cli": "6.13.0",
-    "ava": "2.4.0",
-    "babel-core": "7.0.0-bridge.0",
+    "@types/jest": "25.1.4",
+    "@types/node": "13.9.1",
+    "@typescript-eslint/eslint-plugin": "2.23.0",
+    "@typescript-eslint/parser": "2.23.0",
+    "all-contributors-cli": "6.14.0",
     "coveralls": "3.0.9",
     "eslint": "6.8.0",
     "eslint-config-prettier": "6.10.0",
+    "eslint-plugin-jest": "23.8.2",
     "eslint-plugin-prettier": "3.1.2",
     "husky": "4.2.3",
-    "lint-staged": "10.0.7",
+    "jest": "25.1.0",
+    "lint-staged": "10.0.8",
     "npm-run-all": "4.1.5",
-    "nyc": "15.0.0",
     "prettier": "1.19.1",
-    "rollup": "1.31.1",
-    "rollup-plugin-babel": "4.3.3"
+    "rollup": "2.0.6",
+    "rollup-plugin-terser": "5.3.0",
+    "rollup-plugin-typescript2": "0.26.0",
+    "ts-jest": "25.2.1",
+    "ts-node": "8.6.2",
+    "tslib": "1.11.1",
+    "typescript": "3.8.3"
   }
 }
