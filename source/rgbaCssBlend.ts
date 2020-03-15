@@ -1,10 +1,16 @@
+import { stringRgba } from './customTypes'
 import blend from './blend'
 import blendAlpha from './blendAlpha'
 import parseRgba from './parseRgba'
 import rgbaToRgbaCss from './rgbaToRgbaCss'
 
-// rgbaCssBlend :: (String Rgba, String Rgba, Number) -> String Rgba
-const rgbaCssBlend = (x, y, n) => {
+type RgbaCssBlend = (
+  rgbaA: stringRgba,
+  rgbaB: stringRgba,
+  alpha: number
+) => stringRgba
+
+const rgbaCssBlend: RgbaCssBlend = (x, y, n) => {
   const [rX, gX, bX, aX] = parseRgba(x)
   const [rY, gY, bY, aY] = parseRgba(y)
 
