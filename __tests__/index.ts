@@ -9,7 +9,7 @@ import {
   rgbaCssBlend,
   rgbaCssToHex,
   rgbaToHex,
-  rgbaToRgbaCss
+  rgbaToRgbaCss,
 } from '../source'
 
 test('blend is defined', () => {

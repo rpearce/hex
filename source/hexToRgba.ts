@@ -1,7 +1,9 @@
 import { integer, stringHex, stringHexAlpha } from './customTypes'
 import parse from './parse'
 
-type GetAlpha = (alpha: stringHexAlpha) => number
+export interface GetAlpha {
+  (alpha: stringHexAlpha): number
+}
 
 const getAlpha: GetAlpha = x =>
   x ? parseFloat((parseInt(x, 16) / 0xff).toFixed(2)) : 1

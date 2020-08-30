@@ -2,7 +2,9 @@ import { integer, stringRgba } from './customTypes'
 
 const regex = /[0-9.]+/gi
 
-type ParseRgba = (rgba?: stringRgba) => [integer, integer, integer, number]
+export interface ParseRgba {
+  (rgba?: stringRgba): [integer, integer, integer, number]
+}
 
 const parseRgba: ParseRgba = (x = '') => {
   const [r = '0', g = '0', b = '0', a = '1'] = x.match(regex) || []

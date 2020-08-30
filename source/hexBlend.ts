@@ -4,7 +4,9 @@ import blendAlpha from './blendAlpha'
 import hexToRgba from './hexToRgba'
 import rgbaToHex from './rgbaToHex'
 
-type HexBlend = (hexA: stringHex, hexB: stringHex, n: numberAlpha) => stringHex
+export interface HexBlend {
+  (hexA: stringHex, hexB: stringHex, n: numberAlpha): stringHex
+}
 
 const hexBlend: HexBlend = (x, y, n) => {
   const [rX, gX, bX, aX] = hexToRgba(x)
@@ -13,7 +15,7 @@ const hexBlend: HexBlend = (x, y, n) => {
     blend(rX, rY, n),
     blend(gX, gY, n),
     blend(bX, bY, n),
-    blendAlpha(aX, aY, n)
+    blendAlpha(aX, aY, n),
   ])
 
   return aX === 1 && aY === 1 ? hex.slice(0, 7) : hex
