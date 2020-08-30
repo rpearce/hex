@@ -2,7 +2,9 @@ import { numberAlpha, stringHex, stringRgba } from './customTypes'
 import hexToRgba from './hexToRgba'
 import rgbaToRgbaCss from './rgbaToRgbaCss'
 
-type HexToRgbaCss = (hex: stringHex, alpha?: numberAlpha) => stringRgba
+export interface HexToRgbaCss {
+  (hex: stringHex, alpha?: numberAlpha): stringRgba
+}
 
 const hexToRgbaCss: HexToRgbaCss = (str, alpha) => {
   const [r, g, b, _a] = hexToRgba(str)

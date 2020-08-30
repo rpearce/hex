@@ -4,11 +4,9 @@ import blendAlpha from './blendAlpha'
 import parseRgba from './parseRgba'
 import rgbaToRgbaCss from './rgbaToRgbaCss'
 
-type RgbaCssBlend = (
-  rgbaA: stringRgba,
-  rgbaB: stringRgba,
-  alpha: number
-) => stringRgba
+export interface RgbaCssBlend {
+  (rgbaA: stringRgba, rgbaB: stringRgba, alpha: number): stringRgba
+}
 
 const rgbaCssBlend: RgbaCssBlend = (x, y, n) => {
   const [rX, gX, bX, aX] = parseRgba(x)
@@ -18,7 +16,7 @@ const rgbaCssBlend: RgbaCssBlend = (x, y, n) => {
     blend(rX, rY, n),
     blend(gX, gY, n),
     blend(bX, bY, n),
-    blendAlpha(aX, aY, n)
+    blendAlpha(aX, aY, n),
   ])
 }
 

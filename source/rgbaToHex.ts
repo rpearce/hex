@@ -1,6 +1,8 @@
 import { integer } from './customTypes'
 
-type RgbaToHex = (rgba?: [integer?, integer?, integer?, number?] | []) => string
+export interface RgbaToHex {
+  (rgba?: [integer?, integer?, integer?, number?] | []): string
+}
 
 const rgbaToHex: RgbaToHex = ([r = 0, g = 0, b = 0, a = 1] = []) => {
   const rgbN = (1 << 24) | (r << 16) | (g << 8) | b

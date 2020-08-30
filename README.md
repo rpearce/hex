@@ -1,6 +1,5 @@
 # hex
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
-[![npm version](https://img.shields.io/npm/v/@rpearce/hex.svg)](https://www.npmjs.com/package/@rpearce/hex) [![npm downloads](https://img.shields.io/npm/dm/@rpearce/hex.svg)](https://www.npmjs.com/package/@rpearce/hex) [![bundlephobia size](https://badgen.net/bundlephobia/minzip/@rpearce/hex)](bundlephobia.com/result?p=@rpearce/hex) [![Build Status](https://travis-ci.org/rpearce/hex.svg?branch=master)](https://travis-ci.org/rpearce/hex) [![Coverage Status](https://coveralls.io/repos/github/rpearce/hex/badge.svg?branch=master)](https://coveralls.io/github/rpearce/hex?branch=master) [![Maintainability](https://api.codeclimate.com/v1/badges/8e4debef4b9f0e8acd6e/maintainability)](https://codeclimate.com/github/rpearce/hex/maintainability)
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-) [![npm version](https://img.shields.io/npm/v/@rpearce/hex.svg?style=flat-square)](https://www.npmjs.com/package/@rpearce/hex) [![npm downloads](https://img.shields.io/npm/dm/@rpearce/hex.svg?style=flat-square)](https://www.npmjs.com/package/@rpearce/hex) [![bundlephobia size](https://flat.badgen.net/bundlephobia/minzip/@rpearce/hex)](https://bundlephobia.com/result?p=@rpearce/hex)
 
 ## Links
 * [Installation](#installation)

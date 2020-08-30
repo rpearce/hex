@@ -6,5 +6,5 @@ module.exports = {
   moduleNameMapper: {},
   preset: 'ts-jest',
   setupFilesAfterEnv: [],
-  verbose: true
+  verbose: true,
 }

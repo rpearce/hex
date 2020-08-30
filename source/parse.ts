@@ -1,10 +1,14 @@
 import { stringHex } from './customTypes'
 
-type Repeat = (hex: stringHex) => stringHex
+interface Repeat {
+  (hex: stringHex): stringHex
+}
 
-const repeat: Repeat = x => [...x].map(y => y + y).join('')
+const repeat: Repeat = x => x.split('').map(y => y + y).join('')
 
-type Parse = (hex?: stringHex) => stringHex
+export interface Parse {
+  (hex?: stringHex): stringHex
+}
 
 const parse: Parse = (x = '') => {
   const hex: string = x.replace(/^#/, '')
