@@ -49,8 +49,10 @@ test('prefixed hex-3', () => {
 })
 
 test('alpha provided', () => {
+  expect(hexToRgbaCss('0099ff', 0)).toEqual('rgba(0,153,255,0)')
   expect(hexToRgbaCss('0099ff80', 0.3)).toEqual('rgba(0,153,255,0.3)')
   expect(hexToRgbaCss('0099ff', 0.2)).toEqual('rgba(0,153,255,0.2)')
   expect(hexToRgbaCss('09f9', 0.7)).toEqual('rgba(0,153,255,0.7)')
   expect(hexToRgbaCss('09f', 0.45)).toEqual('rgba(0,153,255,0.45)')
+  expect(hexToRgbaCss('0099ff', 1)).toEqual('rgba(0,153,255,1)')
 })
