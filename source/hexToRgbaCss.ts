@@ -8,7 +8,7 @@ export interface HexToRgbaCss {
 
 const hexToRgbaCss: HexToRgbaCss = (str, alpha) => {
   const [r, g, b, _a] = hexToRgba(str)
-  const a = alpha || _a
+  const a = alpha ?? _a
   return rgbaToRgbaCss([r, g, b, a])
 }
 
