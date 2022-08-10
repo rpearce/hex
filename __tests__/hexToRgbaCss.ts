@@ -1,4 +1,4 @@
-import { hexToRgbaCss } from '../source'
+import { hexToRgbaCss } from '../source/index'
 
 test('pure hex-8', () => {
   expect(hexToRgbaCss('0099ff80')).toEqual('rgba(0,153,255,0.5)')

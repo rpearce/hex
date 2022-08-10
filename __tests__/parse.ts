@@ -1,4 +1,4 @@
-import { parse } from '../source'
+import { parse } from '../source/index'
 
 test('undefined', () => {
   expect(parse()).toEqual('')

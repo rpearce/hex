@@ -1,4 +1,4 @@
-import { rgbaCssBlend } from '../source'
+import { rgbaCssBlend } from '../source/index'
 
 test('purple to white – point is 0.7', () => {
   expect(

@@ -1,4 +1,4 @@
-import { rgbaToHex } from '../source'
+import { rgbaToHex } from '../source/index'
 
 test('undefined', () => {
   expect(rgbaToHex()).toEqual('#000000ff')

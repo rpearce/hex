@@ -1,4 +1,4 @@
-import { parseRgba } from '../source'
+import { parseRgba } from '../source/index'
 
 test('undefined', () => {
   expect(parseRgba()).toEqual([0, 0, 0, 1])
