@@ -1,13 +1,8 @@
-import { stringHex, stringRgba } from './customTypes'
-import parseRgba from './parseRgba'
-import rgbaToHex from './rgbaToHex'
+import { parseRgba } from './parseRgba'
+import { rgbaToHex } from './rgbaToHex'
 
 export interface RgbaCssToHex {
-  (rgba?: stringRgba): stringHex
+  (rgba?: string): string
 }
 
-const rgbaCssToHex: RgbaCssToHex = x => {
-  return rgbaToHex(parseRgba(x))
-}
-
-export default rgbaCssToHex
+export const rgbaCssToHex: RgbaCssToHex = x => rgbaToHex(parseRgba(x))

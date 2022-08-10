@@ -33,9 +33,9 @@ test('seafoam greenish - alpah is 0.5', () => {
 })
 
 test('handles when values are too high', () => {
-  expect(rgbaToHex([ 256, 256, 256, 1 ])).toEqual('#ffffffff')
+  expect(rgbaToHex([256, 256, 256, 1])).toEqual('#ffffffff')
 })
 
 test('handles when alues are too low', () => {
-  expect(rgbaToHex([ -5, -5, -5, 1 ])).toEqual('#000000ff')
+  expect(rgbaToHex([-5, -5, -5, 1])).toEqual('#000000ff')
 })

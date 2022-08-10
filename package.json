@@ -1,9 +1,13 @@
 {
   "name": "@rpearce/hex",
-  "version": "1.0.3",
+  "version": "2.0.0-next.0",
   "description": "Hexadecimal color code & RGBa utility functions",
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
+  "type": "module",
+  "main": "./dist/index.js",
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "types": "./dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git@github.com:rpearce/hex.git"
@@ -11,7 +15,10 @@
   "homepage": "https://github.com/rpearce/hex",
   "bugs": "https://github.com/rpearce/hex/issues",
   "author": "Robert Pearce <me@robertwpearce.com>",
-  "license": "BSD-3",
+  "contributors": [
+    "Robert Pearce <me@robertwpearce.com> (https://robertwpearce.com)"
+  ],
+  "license": "Unlicense",
   "keywords": [
     "hex",
     "hexadecimal",
@@ -29,40 +36,36 @@
     "rgb-to-hex"
   ],
   "files": [
-    "AUTHORS",
-    "LICENSE",
-    "README.md",
     "dist/"
   ],
   "sideEffects": false,
   "scripts": {
-    "build": "rm -rf dist && run-p build:cjs build:esm build:umd",
-    "build:cjs": "tsc -p tsconfig.cjs.json",
-    "build:docs": "rm -rf docs/ && mkdir -p docs && build-storybook -o docs",
-    "build:esm": "tsc -p tsconfig.esm.json",
-    "build:umd": "tsc -p tsconfig.umd.json",
-    "ci": "run-p lint test build",
+    "build": "rm -rf ./dist && rollup -c rollup.config.js",
+    "ci": "concurrently npm:lint npm:test npm:build",
     "contributors:add": "all-contributors add",
     "contributors:generate": "all-contributors generate",
     "lint": "eslint .",
-    "prepublishOnly": "run-p lint test build",
+    "prepublishOnly": "concurrently npm:lint npm:test npm:build",
     "test": "jest"
   },
   "devDependencies": {
-    "@types/jest": "26.0.23",
-    "@types/node": "15.0.1",
-    "@typescript-eslint/eslint-plugin": "4.22.0",
-    "@typescript-eslint/parser": "4.22.0",
-    "all-contributors-cli": "6.20.0",
-    "eslint": "7.25.0",
-    "eslint-plugin-jest": "24.3.6",
-    "jest": "26.6.3",
-    "npm-run-all": "4.1.5",
-    "ts-jest": "26.5.5",
-    "ts-node": "9.1.1",
-    "typescript": "4.2.4"
-  },
-  "dependencies": {
-    "tslib": "^2.0.3"
+    "@rollup/plugin-typescript": "8.3.3",
+    "@types/jest": "^28.1.6",
+    "@types/node": "^18.6.5",
+    "@typescript-eslint/eslint-plugin": "^5.33.0",
+    "@typescript-eslint/parser": "^5.33.0",
+    "all-contributors-cli": "^6.20.0",
+    "concurrently": "^7.3.0",
+    "eslint": "^8.21.0",
+    "eslint-plugin-jest": "^26.8.2",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.2.4",
+    "jest": "^28.1.3",
+    "rollup": "^2.77.2",
+    "rollup-plugin-dts": "^4.2.2",
+    "ts-jest": "^28.0.7",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.7.4"
   }
 }
