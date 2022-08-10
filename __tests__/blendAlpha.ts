@@ -1,4 +1,4 @@
-import { blendAlpha } from '../source'
+import { blendAlpha } from '../source/index'
 
 test('no point provided', () => {
   expect(blendAlpha(0.1, 0.9)).toEqual(0.1)

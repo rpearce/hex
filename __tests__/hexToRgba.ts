@@ -1,4 +1,4 @@
-import { hexToRgba } from '../source'
+import { hexToRgba } from '../source/index'
 
 test('pure hex-8', () => {
   expect(hexToRgba('0099ff80')).toEqual([0, 153, 255, 0.5])

@@ -1,10 +1,8 @@
-import { integer } from './customTypes'
-
 export interface RgbaToHex {
-  (rgba?: [integer?, integer?, integer?, number?] | []): string
+  (rgba?: [number?, number?, number?, number?] | []): string
 }
 
-const rgbaToHex: RgbaToHex = ([r = 0, g = 0, b = 0, a = 1] = []) => {
+export const rgbaToHex: RgbaToHex = ([r = 0, g = 0, b = 0, a = 1] = []) => {
   const hex = [r, g, b].map(x =>
     Math
       .min(255, Math.max(0, Math.round(x)))
@@ -19,5 +17,3 @@ const rgbaToHex: RgbaToHex = ([r = 0, g = 0, b = 0, a = 1] = []) => {
 
   return `#${hex}${alpha}`
 }
-
-export default rgbaToHex

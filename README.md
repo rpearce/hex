@@ -1,7 +1,14 @@
 # hex
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-) [![npm version](https://img.shields.io/npm/v/@rpearce/hex.svg?style=flat-square)](https://www.npmjs.com/package/@rpearce/hex) [![npm downloads](https://img.shields.io/npm/dm/@rpearce/hex.svg?style=flat-square)](https://www.npmjs.com/package/@rpearce/hex) [![bundlephobia size](https://flat.badgen.net/bundlephobia/minzip/@rpearce/hex)](https://bundlephobia.com/result?p=@rpearce/hex)
+
+[![npm version](https://img.shields.io/npm/v/@rpearce/hex.svg)](https://www.npmjs.com/package/@rpearce/hex) [![bundlephobia size](https://badgen.net/bundlephobia/minzip/@rpearce/hex)](https://bundlephobia.com/result?p=@rpearce/hex) [![npm downloads](https://img.shields.io/npm/dm/@rpearce/hex.svg)](https://www.npmjs.com/package/@rpearce/hex) [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg)](#contributors-)
+
+Tiny, useful color functions.
+
+This work is public domain ([LICENSE](./LICENSE)), so feel free to use whatever
+you like.
 
 ## Links
+
 * [Installation](#installation)
 * [Usage](#usage)
   * [`blend`](#blend)
@@ -15,44 +22,40 @@
   * [`rgbaCssToHex`](#rgbacsstohex)
   * [`rgbaToHex`](#rgbatohex)
   * [`rgbaToRgbaCss`](#rgbatorgbacss)
-* [All Contributors](#contributors)
-* [Authors](./AUTHORS)
-* [Changelog](./CHANGELOG.md)
-* [Contributing](./CONTRIBUTING.md)
-* [Code of Conduct](./CODE_OF_CONDUCT.md)
 
 ## Installation
-```
-$ npm i @rpearce/hex
-```
-or
-```
-$ yarn add @rpearce/hex
+
+```sh
+npm i --save @rpearce/hex
 ```
 
+This library's compilation target is `ES2022`, but it only uses features from
+`ES2017` and below. If you find you need to support older environments, run this
+project through your build system.
+
 ## Usage
-You can import each module by destructuring the index like this:
-```js
-import { blend } from '@rpearce/hex'
-```
-Or you can individually import modules like this:
-```js
-import blend from '@rpearce/hex/esm/blend'
-```
-There is also a commonjs build:
-```js
-const { blend } = require('@rpearce/hex')
-const blend = require('@rpearce/hex/cjs/blend')
+
+```typescript
+import { rgbaToHex } from '@rpearce/hex'
+
+rgbaToHex([]) // '#000000ff'
+rgbaToHex([ 120, 55, 168 ]) // '#7837a8ff'
+rgbaToHex([ 120, 55, 168, 1 ]) // '#7837a8ff'
+rgbaToHex([ 120, 55, 168, 0.5 ]) // '#7837a87f'
+rgbaToHex([ 120, 55, 168, 0 ]) // '#7837a800'
 ```
 
 ### `blend`
+
 Blend together two R, G or B (red, green or blue) color numbers.
 
-```haskell
-blend :: (Integer, Integer, Number) -> Integer
+```typescript
+interface Blend {
+  (x: number, y: number, n?: number): number
+}
 ```
 
-```js
+```typescript
 import { blend } from '@rpearce/hex'
 
 blend(120, 255, 0) // 120
@@ -63,13 +66,16 @@ blend(120, 127, 0.5) // 124
 ```
 
 ### `blendAlpha`
+
 Blend together two alpha values.
 
-```haskell
-blendAlpha :: (Integer, Integer, Number) -> Integer
+```typescript
+interface BlendAlpha {
+  (x: number, y: number, n?: number): number
+}
 ```
 
-```js
+```typescript
 import { blendAlpha } from '@rpearce/hex'
 
 blendAlpha(0.1, 0.9, 0) // 0.1
@@ -81,14 +87,17 @@ blendAlpha(0, 1, 0.5) // 0.5
 ```
 
 ### `hexBlend`
+
 Blend two hexadecimal color values together, shifting from one color to the next
 via a fraction between `0` and `1`. Hexadecimal equivalent to `rgbaCssBlend`.
 
-```haskell
-hexBlend :: (String Hex, String Hex, Number) -> String Hex
+```typescript
+interface HexBlend {
+  (hexA: string, hexB: string, n: number): string
+}
 ```
 
-```js
+```typescript
 import { hexBlend } from '@rpearce/hex'
 
 hexBlend('#7837A8', '#FFF', 0) // '#7837a8'
@@ -100,13 +109,16 @@ hexBlend('#7837A880', '#FFF', 0.7) // '#dfd7e8d8'
 ```
 
 ### `hexToRgba`
+
 Convert hexadecimal color codes to an array of RGBa values.
 
-```haskell
-hexToRgba :: String -> [ Integer, Integer, Integer, Number ]
+```typescript
+interface HexToRgba {
+  (hex: string): [number, number, number, number]
+}
 ```
 
-```js
+```typescript
 import { hexToRgba } from '@rpearce/hex'
 
 // hex-8
@@ -127,13 +139,16 @@ hexToRgba('#09f') // [ 0, 153, 255, 1 ]
 ```
 
 ### `hexToRgbaCss`
+
 Convert hexadecimal color codes to `rgba()`.
 
-```haskell
-hexToRgbaCss :: (String, Number) -> String Rgba
+```typescript
+interface HexToRgbaCss {
+  (hex: string, alpha?: number): string
+}
 ```
 
-```js
+```typescript
 import { hexToRgbaCss } from '@rpearce/hex'
 
 // hex-8
@@ -158,13 +173,16 @@ hexToRgbaCss('#09f', 0.45) // 'rgba(0,153,255,0.45)'
 ```
 
 ### `parse`
+
 Parse various forms of hexadecimal colors.
 
-```haskell
-parse :: String -> String Hex
+```typescript
+interface Parse {
+  (hex?: string): string
+}
 ```
 
-```js
+```typescript
 import { parse } from '@rpearce/hex'
 
 // hex-8
@@ -186,11 +204,13 @@ parse('#09f') // '0099ff'
 
 ### `parseRgba`
 
-```haskell
-parseRgba :: String Rgba -> [ Integer, Integer, Integer, Number ]
+```typescript
+interface ParseRgba {
+  (rgba?: string): [number, number, number, number]
+}
 ```
 
-```js
+```typescript
 import { parseRgba } from '@rpearce/hex'
 
 parseRgba('') // [ 0, 0, 0, 1 ]
@@ -200,14 +220,17 @@ parseRgba('rgba(120, 55, 168, 0.3)') // [ 120, 55, 168, 0.3 ]
 ```
 
 ### `rgbaCssBlend`
+
 Blend two `rgba()` color values together, shifting from one color to the next
 via a fraction between `0` and `1`. RGBa equivalent to `hexBlend`.
 
-```haskell
-rgbaCssBlend :: (String Rgba, String Rgba, Number) -> String Rgba
+```typescript
+interface RgbaCssBlend {
+  (rgbaA: string, rgbaB: string, alpha: number): string
+}
 ```
 
-```js
+```typescript
 import { rgbaCssBlend } from '@rpearce/hex'
 
 rgbaCssBlend('rgba(120, 55, 168, 1)', 'rgba(255, 255, 255, 1)', 0.7) // 'rgba(223,215,232,1)'
@@ -216,13 +239,16 @@ rgbaCssBlend('rgba(120, 55, 168, 1)', 'rgba(255, 102, 2, 1)', 0.5) // 'rgba(199,
 ```
 
 ### `rgbaCssToHex`
+
 Convert `rgba()` to hexadecimal.
 
-```haskell
-rgbaCssToHex :: String Rgba -> String Hex
+```typescript
+interface RgbaCssToHex {
+  (rgba?: string): string
+}
 ```
 
-```js
+```typescript
 import { rgbaCssToHex } from '@rpearce/hex'
 
 rgbaCssToHex('') // '#000000ff'
@@ -232,13 +258,16 @@ rgbaCssToHex('rgba(120, 55, 168, 0.3)') // '#7837a84c'
 ```
 
 ### `rgbaToHex`
+
 Convert an array of RGBa values to hexadecimal.
 
-```haskell
-rgbaToHex :: [ Integer, Integer, Integer, Number ] -> String Hex
+```typescript
+interface RgbaToHex {
+  (rgba?: [number?, number?, number?, number?] | []): string
+}
 ```
 
-```js
+```typescript
 import { rgbaToHex } from '@rpearce/hex'
 
 rgbaToHex([]) // '#000000ff'
@@ -249,13 +278,16 @@ rgbaToHex([ 120, 55, 168, 0 ]) // '#7837a800'
 ```
 
 ### `rgbaToRgbaCss`
+
 Convert an array of RGBa values to `rgba()`.
 
-```haskell
-rgbaToRgbaCss :: [ Integer, Integer, Integer, Number ] -> String Rgba
+```typescript
+interface RgbaToRgbaCss {
+  (rgba?: [number?, number?, number?, number?] | []): string
+}
 ```
 
-```js
+```typescript
 import { rgbaToRgbaCss } from '@rpearce/hex'
 
 rgbaToRgbaCss([]) // 'rgba(0,0,0,1)'

@@ -1,4 +1,4 @@
-import { hexBlend } from '../source'
+import { hexBlend } from '../source/index'
 
 test('purple to white – point is 0', () => {
   expect(hexBlend('#7837A8', '#FFF', 0)).toEqual('#7837a8')

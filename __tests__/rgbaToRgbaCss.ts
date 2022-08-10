@@ -1,4 +1,4 @@
-import { rgbaToRgbaCss } from '../source'
+import { rgbaToRgbaCss } from '../source/index'
 
 test('undefined', () => {
   expect(rgbaToRgbaCss()).toEqual('rgba(0,0,0,1)')

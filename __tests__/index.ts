@@ -10,7 +10,7 @@ import {
   rgbaCssToHex,
   rgbaToHex,
   rgbaToRgbaCss,
-} from '../source'
+} from '../source/index'
 
 test('blend is defined', () => {
   expect(blend).toBeDefined()

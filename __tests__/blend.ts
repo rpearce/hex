@@ -1,4 +1,4 @@
-import { blend } from '../source'
+import { blend } from '../source/index'
 
 test('no point provided', () => {
   expect(blend(120, 255)).toEqual(120)
